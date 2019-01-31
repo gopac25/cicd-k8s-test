@@ -40,7 +40,7 @@
   </build>
    <distributionManagement>
         <repository>
-            <id>deployment</id>
+            <id>deploymentrel</id>
             <name>Internal Releases</name>
             <url>http://192.168.226.128:8081/repository/SAMPLE-REL/</url>
         </repository>
