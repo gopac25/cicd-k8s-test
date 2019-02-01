@@ -17,6 +17,12 @@ node {
      // sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
    // }
  // }
+   stage 'clean'
+   sh "${mvnHome}/bin/mvn clean"
+   
+   stage 'compile'
+   sh "${mvnHome}/bin/mvn compile"
+   
    stage 'sonar'
    sh "${mvnHome}/bin/mvn sonar:sonar"
    
