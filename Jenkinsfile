@@ -32,8 +32,9 @@ node {
    sh "${mvnHome}/bin/mvn versions:set -DnewVersion=${env.BUILD_NUMBER}"
    sh "${mvnHome}/bin/mvn package"
    
-   stage('Results') {
-      junit '**/target/reports/TEST-*.xml'
+   stage('Junit') {
+      archive "target/**/*"
+            junit 'target/surefire-reports/*.xml'
    }
    stage 'test'
    parallel 'test': {
