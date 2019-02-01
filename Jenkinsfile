@@ -31,7 +31,10 @@ node {
    // map artifacts to Jenkins builds
    sh "${mvnHome}/bin/mvn versions:set -DnewVersion=${env.BUILD_NUMBER}"
    sh "${mvnHome}/bin/mvn package"
-
+   
+   stage('Results') {
+      junit '**/target/reports/TEST-*.xml'
+   }
    stage 'test'
    parallel 'test': {
      sh "${mvnHome}/bin/mvn test; sleep 2;"
