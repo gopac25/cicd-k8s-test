@@ -44,6 +44,11 @@ node {
       archive 'target/*.jar'
    }
    
+      stage('PublishResults') {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      archive 'target/*.jar'
+   }
+   
    stage 'deploy'
    sh "${mvnHome}/bin/mvn deploy"
 }
