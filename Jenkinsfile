@@ -31,18 +31,19 @@ node {
    // map artifacts to Jenkins builds
    sh "${mvnHome}/bin/mvn versions:set -DnewVersion=${env.BUILD_NUMBER}"
    sh "${mvnHome}/bin/mvn package"
-   
-   stage('Junit') {
-      archive "target/**/*"
-            junit 'target/surefire-reports/*.xml'
-   }
+  
    stage 'test'
    parallel 'test': {
      sh "${mvnHome}/bin/mvn test; sleep 2;"
    }, 'verify': {
      sh "${mvnHome}/bin/mvn verify; sleep 3"
    }
-
+post {
+        always {
+            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            junit 'build/reports/**/*.xml'
+        }
+    }
    stage 'deploy'
    sh "${mvnHome}/bin/mvn deploy"
 }
