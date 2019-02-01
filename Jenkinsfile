@@ -40,8 +40,9 @@ node {
    }
 post {
         always {
-            archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            junit 'build/reports/**/*.xml'
+            //archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
+            archiveArtifacts 'target/*.jar'
+            junit 'target/surefire-reports/TEST-*.xml'
         }
     }
    stage 'deploy'
