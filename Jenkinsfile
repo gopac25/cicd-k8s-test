@@ -38,13 +38,12 @@ node {
    }, 'verify': {
      sh "${mvnHome}/bin/mvn verify; sleep 3"
    }
-post {
-        always {
-            //archiveArtifacts artifacts: 'build/libs/**/*.jar', fingerprint: true
-            archiveArtifacts 'target/*.jar'
-            junit 'target/surefire-reports/TEST-*.xml'
-        }
-    }
+   
+   stage('Results') {
+      junit '**/target/surefire-reports/TEST-*.xml'
+      archive 'target/*.jar'
+   }
+   
    stage 'deploy'
    sh "${mvnHome}/bin/mvn deploy"
 }
