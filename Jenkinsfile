@@ -11,12 +11,15 @@ node {
    // **       in the global configuration.
    def mvnHome = tool 'M3'
    
-   stage('SonarQube analysis') {
-    withSonarQubeEnv('sonar') {
+   //stage('SonarQube analysis') {
+    //withSonarQubeEnv('sonar') {
       // requires SonarQube Scanner for Maven 3.2+
-      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-    }
-  }
+     // sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+   // }
+ // }
+   stage 'sonar'
+   sh "${mvnHome}/bin/mvn sonar:sonar"
+   
    stage 'build'
    // set the version of the build artifact to the Jenkins BUILD_NUMBER so you can
    // map artifacts to Jenkins builds
