@@ -39,16 +39,6 @@ node {
      sh "${mvnHome}/bin/mvn verify; sleep 3"
    }
    
-   stage 'junit' {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
-   }
-   
-      stage('publishHTML') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
-   }
-   
    stage 'deploy'
    sh "${mvnHome}/bin/mvn deploy"
 }
