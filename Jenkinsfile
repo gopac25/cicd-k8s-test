@@ -39,7 +39,7 @@ node {
      sh "${mvnHome}/bin/mvn verify; sleep 3"
    }
    
-   stage('Results') {
+   stage 'Results' {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
