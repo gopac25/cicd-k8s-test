@@ -40,12 +40,12 @@
   </build>
    <distributionManagement>
         <repository>
-            <id>releases</id>
+            <id>nexus</id>
             <name>Internal Releases</name>
             <url>http://172.18.0.4:8081/repository/myproject-release/</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>nexus</id>
             <name>Internal Snapshot Releases</name>
             <url>http://172.18.0.4:8081/repository/myproject-snapshot/</url>
         </snapshotRepository>
