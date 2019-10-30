@@ -41,11 +41,15 @@
    <distributionManagement>
         <repository>
             <id>releases</id>
+            <username>admin</username>
+            <password>admin</password>
             <name>Internal Releases</name>
             <url>http://172.18.0.4:8081/repository/myproject-release/</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
+            <username>admin</username>
+            <password>admin</password>
             <name>Internal Snapshot Releases</name>
             <url>http://172.18.0.4:8081/repository/myproject-snapshot/</url>
         </snapshotRepository>
