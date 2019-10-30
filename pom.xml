@@ -42,12 +42,12 @@
         <repository>
             <id>releases</id>
             <name>Internal Releases</name>
-            <url>http://192.168.226.128:8081/repository/SAMPLE-REL/</url>
+            <url>http://192.168.145.141:8081/repository/myproject-release/</url>
         </repository>
         <snapshotRepository>
             <id>snapshots</id>
             <name>Internal Snapshot Releases</name>
-            <url>http://192.168.28.131:8081/repository/FIRST_PIPELINE_SNAP/</url>
+            <url>http://192.168.145.141:8081/repository/myproject-snapshot/</url>
         </snapshotRepository>
     </distributionManagement>
   <dependencies>
