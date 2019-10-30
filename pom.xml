@@ -39,7 +39,6 @@
     </plugins>
   </build>
    <distributionManagement>
-     <server>
         <repository>
             <id>releases</id>
             <username>admin</username>
@@ -54,7 +53,6 @@
             <name>Internal Snapshot Releases</name>
             <url>http://172.18.0.4:8081/repository/myproject-snapshot/</url>
         </snapshotRepository>
-       </server>
     </distributionManagement>
   <dependencies>
     <dependency>
