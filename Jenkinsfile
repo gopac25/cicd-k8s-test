@@ -9,7 +9,7 @@ node {
    // Get the maven tool.
    // ** NOTE: This 'mvn' maven tool must be configured
    // **       in the global configuration.
-   def mvnHome = tool 'M3'
+   def mvnHome = tool 'maven'
    
    //stage('SonarQube analysis') {
     //withSonarQubeEnv('sonar') {
