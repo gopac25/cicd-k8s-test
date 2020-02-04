@@ -11,12 +11,12 @@ node {
    // **       in the global configuration.
    def mvnHome = tool 'maven'
    
-   stage('SonarQube analysis') {
-    withSonarQubeEnv('sonar') {
+   //stage('SonarQube analysis') {
+   // withSonarQubeEnv('sonar') {
       // requires SonarQube Scanner for Maven 3.2+
-     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
-    }
-  }
+     //sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+   // }
+ // }
    stage 'clean'
    sh "${mvnHome}/bin/mvn clean"
    
