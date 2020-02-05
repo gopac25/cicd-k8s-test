@@ -12,8 +12,20 @@ pipeline {
    }
 
    def mvnHome = tool 'maven'
+   
+    tools { 
+        maven 'Maven 3.6.3'  
+    }
 
    stages {
+     stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
+            }
+        }
       stage('Preparation') {
          steps {
             cleanWs()
@@ -22,18 +34,18 @@ pipeline {
       }
       stage('Build') {
          steps {
-            sh "${mvnHome}/bin/mvn clean package"
+            sh "mvn clean package"
          }
       }
       stage('Code Analysis') {
          steps {
-           sh "${mvnHome}/bin/mvn sonar:sonar"
+           sh "mvn sonar:sonar"
          }
       }
       
            stage('Deploy to Nexus') {
          steps {
-          sh "${mvnHome}/bin/mvn deploy"
+          sh "mvn deploy"
          }
       }
     stage('Building image') {
