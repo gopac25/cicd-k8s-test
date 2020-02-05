@@ -10,8 +10,6 @@ pipeline {
      registryCredential = 'dockerhub'
      dockerImage = ''
    }
-
-   def mvnHome = tool 'maven'
    
     tools { 
         maven 'Maven 3.6.3'  
