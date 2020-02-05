@@ -24,21 +24,27 @@ pipeline {
       }
       stage('Build') {
          steps {
+         script {
             def mvnHome = tool 'maven'
             sh "${mvnHome}/bin/mvn clean package"
+         }
          }
       }
       stage('Code Analysis') {
          steps {
+         script {
            def mvnHome = tool 'maven'
            sh "${mvnHome}/bin/mvn sonar:sonar"
+         }
          }
       }
       
            stage('Deploy to Nexus') {
          steps {
+         script {
           def mvnHome = tool 'maven'
           sh "${mvnHome}/bin/mvn deploy"
+         }
          }
       }
     stage('Building image') {
