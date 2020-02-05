@@ -11,6 +11,8 @@ pipeline {
      dockerImage = ''
    }
 
+   def mvnHome = tool 'maven'
+
    stages {
       stage('Preparation') {
          steps {
@@ -20,18 +22,18 @@ pipeline {
       }
       stage('Build') {
          steps {
-            sh "mvn clean package"
+            sh "${mvnHome}/bin/mvn clean package"
          }
       }
       stage('Code Analysis') {
          steps {
-           sh "mvn sonar:sonar"
+           sh "${mvnHome}/bin/mvn sonar:sonar"
          }
       }
       
            stage('Deploy to Nexus') {
          steps {
-          sh "mvn deploy"
+          sh "${mvnHome}/bin/mvn deploy"
          }
       }
     stage('Building image') {
