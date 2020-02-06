@@ -1,9 +1,9 @@
-FROM openjdk:8u242-jre
+FROM tomcat:8.0-alpine
 
 MAINTAINER Gopala Krishnan
 
-ADD target/Myproject-R1.0.war Myproject-R1.0.war
+ADD target/Myproject-R1.0.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 
-CMD ["java","-Xmx50m","-war","Myproject-R1.0.war"]
+CMD ["catalina.sh", "run"]
